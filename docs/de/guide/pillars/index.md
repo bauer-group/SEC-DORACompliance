@@ -29,7 +29,7 @@ DORA ist nach dem Lamfalussy-Verfahren aufgebaut:
 
 ## Priorisierung für IKT-Dienstleister
 
-Für BAUER GROUP als IKT-Dienstleister empfiehlt sich folgende Umsetzungspriorität:
+BAUER GROUP hat die Umsetzung nach folgender Priorität durchgeführt:
 
 | Prio | Pillar | Begründung |
 |---|---|---|

@@ -57,7 +57,7 @@ FinmadiG empowers BaFin to impose:
 | TLPT | Art. 26–27 DORA | Systemically important only |
 
 ::: warning Important for BAUER GROUP
-Since the annual financial auditors of clients are now explicitly required to audit DORA compliance (Art. 3 No. 10 a) dd) KWG amendment), **audit requests to ICT service providers will increase significantly**. BAUER GROUP should prepare standardised audit packages.
+Since the annual financial auditors of clients are now explicitly required to audit DORA compliance (Art. 3 No. 10 a) dd) KWG amendment), **audit requests to ICT service providers have increased significantly**. BAUER GROUP provides standardised [audit readiness packages](/en/guide/automation/audit-trail).
 :::
 
 ## Practical Implications

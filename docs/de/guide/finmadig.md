@@ -57,7 +57,7 @@ Das FinmadiG ermächtigt die BaFin zu:
 | TLPT | Art. 26–27 DORA | Nur systemrelevant |
 
 ::: warning Wichtig für BAUER GROUP
-Da die Jahresabschlussprüfer der Kunden nun explizit die DORA-Compliance prüfen müssen (Art. 3 Nr. 10 a) dd) KWG-Änderung), werden **Audit-Anfragen an IKT-Dienstleister deutlich zunehmen**. BAUER GROUP sollte standardisierte Audit-Pakete vorbereiten.
+Da die Jahresabschlussprüfer der Kunden nun explizit die DORA-Compliance prüfen müssen (Art. 3 Nr. 10 a) dd) KWG-Änderung), haben **Audit-Anfragen an IKT-Dienstleister deutlich zugenommen**. BAUER GROUP stellt standardisierte [Audit-Readiness-Pakete](/de/guide/automation/audit-trail) bereit.
 :::
 
 ## Praktische Implikationen

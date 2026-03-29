@@ -31,7 +31,7 @@ BaFin has published guidance on implementing the simplified ICT risk management 
 
 ## BAUER GROUP Classification
 
-BAUER GROUP as an ICT service provider does not directly benefit from the proportionality principle, as the requirements are imposed indirectly through client contracts. However: **clients subject to the simplified framework impose less demanding contractual requirements** – which should be taken into account in contract design (tiered contract modules).
+BAUER GROUP as an ICT service provider does not directly benefit from the proportionality principle, as the requirements are imposed indirectly through client contracts. However: **clients subject to the simplified framework impose less demanding contractual requirements** – this is addressed through tiered contract modules.
 
 ::: tip Contractual Tiering
 Recommendation: Prepare two contract modules:
