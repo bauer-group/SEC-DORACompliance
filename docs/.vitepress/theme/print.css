@@ -1,0 +1,349 @@
+/**
+ * DORA Compliance – Print Stylesheet
+ * Optimized for audit-ready documentation output (A4)
+ *
+ * Key principles:
+ *   1. Hide all interactive/navigation elements
+ *   2. Prevent content from breaking mid-element
+ *   3. Ensure readability in B&W print
+ *   4. Show external link URLs for audit traceability
+ *   5. Repeat table headers across pages
+ */
+
+/* ─── Page Setup ─── */
+@page {
+  size: A4 portrait;
+  margin: 2cm 1.8cm;
+}
+
+@page :first {
+  margin-top: 2.5cm;
+}
+
+/* ─── Hide Interactive / Screen-Only Elements ─── */
+@media print {
+  .VPNav,
+  .VPNavBar,
+  .VPLocalNav,
+  .VPSidebar,
+  .VPDocAsideOutline,
+  .VPDocFooter,
+  .VPFooter,
+  .VPNavBarSearch,
+  .DocSearch,
+  .header-anchor,
+  .vp-external-link-icon,
+  .edit-link,
+  [class*="search"],
+  button.copy,
+  .VPImage,
+  .VPHero,
+  .VPFeatures,
+  .announcement-bar {
+    display: none !important;
+  }
+
+  /* ─── Full-Width Content Layout ─── */
+  .VPDoc .container,
+  .VPDoc .content,
+  .VPContent {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .VPDoc {
+    padding: 0 !important;
+  }
+
+  .VPDoc .aside {
+    display: none !important;
+  }
+
+  /* ─── Typography ─── */
+  body {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+  }
+
+  h1 {
+    font-size: 20pt;
+    margin-top: 0;
+    color: #000;
+  }
+
+  h2 {
+    font-size: 16pt;
+    border-bottom: 2px solid #000 !important;
+    padding-bottom: 4pt;
+    margin-top: 24pt;
+    color: #000;
+  }
+
+  h3 {
+    font-size: 13pt;
+    color: #000;
+  }
+
+  h4, h5, h6 {
+    color: #000;
+  }
+
+  /* ─── Page Break Control ─── */
+
+  /* Headings: never leave a heading alone at the bottom of a page */
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* New page before each H2 (chapter boundary) — except the first */
+  .vp-doc h2:not(:first-of-type) {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Paragraphs: prevent orphans and widows */
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Code blocks: never break */
+  pre,
+  code,
+  .vp-code-group,
+  div[class*="language-"] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+    background: #f8f8f8 !important;
+    font-size: 9pt;
+  }
+
+  /* Custom containers (callouts): never break */
+  .custom-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #666 !important;
+    background: #fff !important;
+    padding: 12pt;
+    margin: 8pt 0;
+  }
+
+  .custom-block .custom-block-title {
+    color: #000 !important;
+    font-weight: 700;
+  }
+
+  /* Blockquotes */
+  blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border-left: 3px solid #000 !important;
+    padding-left: 12pt;
+  }
+
+  /* Images */
+  img {
+    max-width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ─── Tables ─── */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 9.5pt;
+    line-height: 1.4;
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  /* Repeat header on every page */
+  thead {
+    display: table-header-group;
+  }
+
+  /* Prevent row from splitting across pages */
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #000 !important;
+    padding: 4pt 6pt;
+    text-align: left;
+  }
+
+  th {
+    background: #e8e8e8 !important;
+    font-weight: 700;
+    color: #000;
+  }
+
+  /* Striped rows for readability */
+  tr:nth-child(even) td {
+    background: #f5f5f5 !important;
+  }
+
+  /* ─── External Link URLs (Audit Traceability) ─── */
+
+  /* Show URL after external links */
+  .vp-doc a[href^="http://"]::after,
+  .vp-doc a[href^="https://"]::after {
+    content: " [" attr(href) "]";
+    font-size: 8pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* Don't show URL for internal links or anchors */
+  .vp-doc a[href^="/"]::after,
+  .vp-doc a[href^="#"]::after,
+  .vp-doc a[href^="./"]::after,
+  .vp-doc a[href^="../"]::after {
+    content: none;
+  }
+
+  /* Links: no color, underline only */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* ─── Compliance Status Badges (B&W Safe) ─── */
+  .compliance-status {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1.5pt solid #000;
+    padding: 1pt 6pt;
+    font-weight: 700;
+  }
+
+  .compliance-status.compliant {
+    border-style: solid;
+  }
+
+  .compliance-status.compliant::before {
+    content: "✓ ";
+  }
+
+  .compliance-status.partial {
+    border-style: dashed;
+  }
+
+  .compliance-status.partial::before {
+    content: "~ ";
+  }
+
+  .compliance-status.missing {
+    border-style: double;
+    border-width: 3pt;
+  }
+
+  .compliance-status.missing::before {
+    content: "✗ ";
+  }
+
+  /* ─── Pillar Badges (B&W Safe) ─── */
+  .badge-pillar-1,
+  .badge-pillar-2,
+  .badge-pillar-3,
+  .badge-pillar-4,
+  .badge-pillar-5 {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1pt solid #000;
+    padding: 1pt 6pt;
+    font-weight: 600;
+  }
+
+  /* ─── Priority Badges (B&W Safe) ─── */
+  .priority-critical,
+  .priority-high,
+  .priority-medium {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1pt solid #000;
+    font-weight: 700;
+  }
+
+  .priority-critical {
+    border-style: double;
+    border-width: 3pt;
+  }
+
+  .priority-critical::before {
+    content: "⚠ ";
+  }
+
+  /* ─── Timeline Component ─── */
+  .dora-timeline {
+    border-left: 2pt solid #000 !important;
+  }
+
+  .dora-timeline .event::before {
+    background: #000 !important;
+    border-color: #fff !important;
+  }
+
+  .dora-timeline .event.active::before {
+    background: #000 !important;
+    box-shadow: none !important;
+  }
+
+  /* ─── Decision Tree ─── */
+  .decision-tree {
+    background: #fff !important;
+    border: 1pt solid #000;
+  }
+
+  .decision-tree .node {
+    border-left-color: #000 !important;
+    background: #fff !important;
+  }
+
+  .decision-tree .result-go,
+  .decision-tree .result-stop,
+  .decision-tree .result-check {
+    color: #000 !important;
+    font-weight: 700;
+  }
+
+  /* ─── Article References ─── */
+  .article-ref {
+    color: #000 !important;
+    font-weight: 700;
+  }
+
+  /* ─── Custom Container Types — B&W Border Differentiation ─── */
+  .custom-block.info {
+    border-left: 4pt solid #999 !important;
+  }
+
+  .custom-block.tip {
+    border-left: 4pt solid #666 !important;
+  }
+
+  .custom-block.warning {
+    border-left: 4pt solid #333 !important;
+  }
+
+  .custom-block.danger {
+    border-left: 4pt solid #000 !important;
+    border-width: 1pt;
+    border-left-width: 4pt;
+  }
+
+  .custom-block.legal {
+    border-left: 4pt solid #555 !important;
+    background: #fff !important;
+  }
+}

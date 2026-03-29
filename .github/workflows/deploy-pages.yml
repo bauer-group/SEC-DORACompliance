@@ -1,0 +1,92 @@
+# =============================================================================
+# Deploy DORA Compliance Documentation
+# =============================================================================
+# Builds the VitePress documentation site and deploys to GitHub Pages.
+# Triggered on push to main (docs/config changes) or manual dispatch.
+#
+# Pipeline: Checkout → Install → Lint → Build → Deploy
+#
+# Documentation: https://dora.docs.bauer-group.com
+# =============================================================================
+
+name: 📚 Deploy Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+# ---------------------------------------------------------------------------
+# Permissions & Concurrency
+# ---------------------------------------------------------------------------
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# =============================================================================
+# Jobs
+# =============================================================================
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Job: Build
+  # ---------------------------------------------------------------------------
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+
+      - name: 📚 Install dependencies
+        run: npm ci
+
+      - name: 🔍 Lint
+        run: npm run lint
+
+      - name: 🏗️ Build VitePress
+        run: npm run docs:build
+
+      - name: ⚙️ Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: 📤 Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/.vitepress/dist
+
+  # ---------------------------------------------------------------------------
+  # Job: Deploy
+  # ---------------------------------------------------------------------------
+  deploy:
+    name: 🚀 Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

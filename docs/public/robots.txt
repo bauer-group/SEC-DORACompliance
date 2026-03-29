@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dora.docs.bauer-group.com/sitemap.xml
