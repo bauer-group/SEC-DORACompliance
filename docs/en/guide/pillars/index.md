@@ -29,7 +29,7 @@ DORA follows the Lamfalussy process:
 
 ## Prioritisation for ICT Service Providers
 
-For BAUER GROUP as an ICT service provider, the following implementation priority is recommended:
+BAUER GROUP implemented the pillars in the following priority order:
 
 | Prio | Pillar | Rationale |
 |---|---|---|

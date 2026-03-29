@@ -31,7 +31,7 @@ Die BaFin hat Hinweise zur Umsetzung des vereinfachten IKT-Risikomanagementrahme
 
 ## BAUER GROUP-Einordnung
 
-BAUER GROUP als IKT-Dienstleister profitiert nicht direkt vom Proportionalitätsprinzip, da die Anforderungen indirekt über Kundenverträge kommen. Allerdings: **Kunden, die dem vereinfachten Rahmen unterliegen, stellen geringere vertragliche Anforderungen** – was bei der Vertragsgestaltung berücksichtigt werden sollte (abgestufte Vertragsmodule).
+BAUER GROUP als IKT-Dienstleister profitiert nicht direkt vom Proportionalitätsprinzip, da die Anforderungen indirekt über Kundenverträge kommen. Allerdings: **Kunden, die dem vereinfachten Rahmen unterliegen, stellen geringere vertragliche Anforderungen** – dies wird bei der Vertragsgestaltung durch abgestufte Vertragsmodule berücksichtigt.
 
 ::: tip Vertragliche Abstufung
 Empfehlung: Zwei Vertragsmodule vorbereiten:
