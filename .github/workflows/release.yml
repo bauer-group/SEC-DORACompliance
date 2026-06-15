@@ -48,6 +48,12 @@ jobs:
       run-tests: false
       run-audit: true
       audit-level: 'high'
+      # Static VitePress site: esbuild/vite/vitepress are devDependencies only
+      # (no runtime risk). A transitive esbuild high advisory has no
+      # VitePress-compatible fix yet, so scope the gate to runtime deps.
+      # See https://github.com/advisories/GHSA-gv7w-rqvm-qjhr
+      # Revert to a full-tree high audit once the chain ships esbuild >= 0.28.1.
+      audit-production-only: true
       upload-artifacts: false
 
   # ---------------------------------------------------------------------------
